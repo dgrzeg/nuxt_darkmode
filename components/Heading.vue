@@ -3,9 +3,13 @@
     <div class="content-container">
       <div class="text-container">
         <h4>Based on your reading history</h4>
-        <h2>Designing search for mobile apps</h2>
-        <p class="date">Aug 26th, 2021, 4pm</p>
-        <p class="snippet">
+        <h2 :class="{ 'dark-mode': isDarkMode }">
+          Designing search for mobile apps
+        </h2>
+        <p class="date" :class="{ 'dark-mode': isDarkMode }">
+          Aug 26th, 2021, 4pm
+        </p>
+        <p class="snippet" :class="{ 'dark-mode': isDarkMode }">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, in.
           Obcaecati in iusto minima impedit assumenda perferendis natus tempore
           modi ducimus. Blanditiis, quis. Maxime delectus ducimus assumenda vel
@@ -21,6 +25,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const { isDarkMode } = useDarkMode()
+</script>
 
 <style scoped>
 h4 {

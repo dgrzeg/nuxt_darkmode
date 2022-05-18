@@ -1,3 +1,13 @@
+<template>
+  <div class="card" :class="{ 'dark-mode': isDarkMode }">
+    <img :src="card.img" alt="" />
+    <div class="content">
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.author }}</p>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 interface CardProps {
   card: {
@@ -6,19 +16,10 @@ interface CardProps {
     author: string
   }
 }
-
 const props = defineProps<CardProps>()
-</script>
 
-<template>
-  <div class="card">
-    <img :src="card.img" alt="" />
-    <div class="content">
-      <h3>{{ card.title }}</h3>
-      <p>{{ card.author }}</p>
-    </div>
-  </div>
-</template>
+const { isDarkMode } = useDarkMode()
+</script>
 
 <style scoped>
 .card {
